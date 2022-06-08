@@ -1,9 +1,14 @@
 version: 2.1
 
 jobs:
-  build:
+  test:
     resource_class: small
     docker:
       - image: cimg/base:stable
     steps:
       - run: echo "triggered"
+
+workflows:
+  main:
+    jobs:
+      - test
